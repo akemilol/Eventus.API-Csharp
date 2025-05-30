@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Eventus.API.Infrastructure.Context;
 using Eventus.API.Domain.Entities;
 using Eventus.API.Application.Dtos;
-using BCrypt.Net;
 
 namespace Eventus.API.Controllers
 {
@@ -53,13 +52,36 @@ namespace Eventus.API.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] UsuarioCreateDto dto)
         {
+            if (!ModelState.IsValid)
+                return BadRequest(new { message = "Preencha todos os campos corretamente." });
+
+            if (dto.Nome.Trim().Length < 3 || !System.Text.RegularExpressions.Regex.IsMatch(dto.Nome, @"^[A-Za-zÀ-ÿ\s]+$"))
+                return BadRequest(new { message = "Nome inválido. Digite apenas letras, no mínimo 3 caracteres." });
+
+            var cpfNumbers = new string(dto.CPF.Where(char.IsDigit).ToArray());
+            if (cpfNumbers.Length != 11)
+                return BadRequest(new { message = "CPF inválido. Deve conter 11 números." });
+
+            var cepNumbers = new string(dto.CEP.Where(char.IsDigit).ToArray());
+            if (cepNumbers.Length != 8)
+                return BadRequest(new { message = "CEP inválido. Deve conter 8 números." });
+
+            if (dto.Senha.Length < 6)
+                return BadRequest(new { message = "A senha deve ter pelo menos 6 caracteres." });
+
+            if (string.IsNullOrWhiteSpace(dto.Email) || !System.Text.RegularExpressions.Regex.IsMatch(dto.Email, @"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$"))
+                return BadRequest(new { message = "Email inválido." });
+
+            if (await _context.Usuarios.CountAsync(u => u.Email == dto.Email) > 0)
+                return BadRequest(new { message = "E-mail já cadastrado." });
+
             var usuario = new Usuario
             {
-                Nome = dto.Nome,
-                Email = dto.Email,
+                Nome = dto.Nome.Trim(),
+                Email = dto.Email.Trim(),
                 Senha = BCrypt.Net.BCrypt.HashPassword(dto.Senha),
-                CPF = dto.CPF,
-                CEP = dto.CEP,
+                CPF = cpfNumbers,
+                CEP = cepNumbers,
                 DataNascimento = dto.DataNascimento
             };
             _context.Usuarios.Add(usuario);

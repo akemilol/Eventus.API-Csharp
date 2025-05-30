@@ -13,9 +13,13 @@ namespace Eventus.API.Infrastructure.Context
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Usuario>()
+                .ToTable("USUARIOS")
                 .HasMany(u => u.Relatos)
                 .WithOne(r => r.Usuario)
                 .HasForeignKey(r => r.UsuarioId);
+
+            modelBuilder.Entity<RelatoEvento>()
+                .ToTable("RELATOS");
         }
     }
 }
