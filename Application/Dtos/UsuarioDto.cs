@@ -7,6 +7,6 @@
         public string Email { get; set; }
         public string CPF { get; set; }
         public string CEP { get; set; }
-        public string DataNascimento { get; set; }
+        public DateTime DataNascimento { get; set; }
     }
 }
