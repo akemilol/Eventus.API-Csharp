@@ -115,9 +115,10 @@ dotnet run
 ---
 
 ## 📑 Prints e Evidências
-
-> ![Exemplo Swagger](CAMINHO_DA_IMAGEM_DO_SWAGGER.png)
-> ![Exemplo Razor Page](CAMINHO_DA_IMAGEM_DO_RAZOR.png)
+> Imagem 1, mostra o banco de dados funcionando com o swagger.
+> ![Exemplo Swagger](https://media.discordapp.net/attachments/1277037400996053085/1378851410212294767/image.png?ex=683e1af2&is=683cc972&hm=69ecda06761f5a3f3d4ff7f70776b07aaa879e3f84e6fb8fb0634564d2d5f1ad&=&format=webp&quality=lossless&width=1032&height=293)
+> Imagem 2, mostra o razor funcionando com os dados do banco.
+> ![Exemplo Razor Page](https://media.discordapp.net/attachments/1277037400996053085/1378851285192806492/image.png?ex=683e1ad4&is=683cc954&hm=4e2133a7bbaf2ba5582cadc0e38992606e2235ea83f68f9aad751cf444a7672e&=&format=webp&quality=lossless&width=1032&height=458)
 
 ---
 ## 👩‍💻 Integrantes: 
