@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using Eventus.API.Infrastructure.Context;
+using Eventus.API_Csharp.Infrastructure.Context;
 using Eventus.API.Domain.Entities;
 using Eventus.API.Application.Dtos;
 

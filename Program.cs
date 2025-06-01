@@ -1,4 +1,4 @@
-using Eventus.API.Infrastructure.Context;
+using Eventus.API_Csharp.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
