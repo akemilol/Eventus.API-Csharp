@@ -1,6 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace Eventus.API.Application.Dtos
+
 {
     public class UsuarioCreateDto
     {

@@ -1,9 +1,6 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Eventus.API_Csharp.Domain.Entities;
-using Eventus.API_Csharp.Infrastructure.Context;
-using System.Collections.Generic;
-using System.Linq;
 using Eventus.API.Domain.Entities;
+using Eventus.API.Infrastructure.Context;
 
 public class UsuariosModel : PageModel
 {

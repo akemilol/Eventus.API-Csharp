@@ -1,4 +1,4 @@
-﻿namespace Eventus.API_Csharp.Application.Dtos
+﻿namespace Eventus.API.Application.Dtos
 {
     public class AlertaCreateDto
     {

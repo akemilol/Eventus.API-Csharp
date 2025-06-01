@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Eventus.API.Migrations
 {
     /// <inheritdoc />
-    public partial class CorrigirNomeTabelas : Migration
+    public partial class SyncFinal : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

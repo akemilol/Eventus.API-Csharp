@@ -1,4 +1,5 @@
-﻿namespace Eventus.API_Csharp.Domain.Entities
+﻿namespace Eventus.API.Domain.Entities
+
 {
     public class UsuarioAlerta
     {

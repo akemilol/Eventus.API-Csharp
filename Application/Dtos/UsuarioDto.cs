@@ -1,4 +1,5 @@
 ﻿namespace Eventus.API.Application.Dtos
+
 {
     public class UsuarioDto
     {

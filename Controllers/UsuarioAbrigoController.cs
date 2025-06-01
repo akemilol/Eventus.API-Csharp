@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Eventus.API_Csharp.Domain.Entities;
-using Eventus.API_Csharp.Infrastructure.Context;
-using Eventus.API_Csharp.Application.Dtos;
+using Eventus.API.Domain.Entities;
+using Eventus.API.Application.Dtos;
+using Eventus.API.Infrastructure.Context;
 
-namespace Eventus.API_Csharp.Controllers
+
+namespace Eventus.API.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]

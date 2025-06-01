@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Eventus.API_Csharp.Domain.Entities;
 using Eventus.API.Domain.Entities;
 
 
-namespace Eventus.API_Csharp.Infrastructure.Context
+namespace Eventus.API.Infrastructure.Context
+
 {
     public class EventusDbContext : DbContext
     {
