@@ -7,6 +7,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 
 
 builder.Services.AddDbContext<EventusDbContext>(options =>
@@ -22,6 +23,8 @@ var app = builder.Build();
 
 app.UseSwagger();
 app.UseSwaggerUI();
+
+app.MapRazorPages();
 
 app.UseCors("AllowAll");
 
