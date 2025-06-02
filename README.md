@@ -65,7 +65,7 @@ dotnet run
 
 ## 🎬 Vídeo Demonstrativo
 
-> [video (máx. 8 minutos)]  
+> [Mostrando o Funcionamento da aplicação(https://youtu.be/oiTAOJGtXGs)]  
 
 ---
 
