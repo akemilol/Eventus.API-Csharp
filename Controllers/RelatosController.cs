@@ -4,7 +4,6 @@ using Eventus.API.Domain.Entities;
 using Eventus.API.Application.Dtos;
 using Eventus.API.Infrastructure.Context;
 
-
 namespace Eventus.API.Controllers
 {
     [ApiController]
@@ -18,15 +17,39 @@ namespace Eventus.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get() =>
-            Ok(await _context.Relatos.Include(r => r.Usuario).ToListAsync());
+        public async Task<IActionResult> Get()
+        {
+            var relatos = await _context.Relatos.ToListAsync();
+
+            var dtos = relatos.Select(relato => new RelatoEventoCreateDto
+            {
+                Id = relato.Id,
+                UsuarioId = relato.UsuarioId,
+                Descricao = relato.Descricao,
+                Localizacao = relato.Localizacao,
+                DataEvento = relato.DataEvento
+            }).ToList();
+
+            return Ok(dtos);
+        }
+
 
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
-            var relato = await _context.Relatos.Include(r => r.Usuario).FirstOrDefaultAsync(r => r.Id == id);
+            var relato = await _context.Relatos.FindAsync(id);
             if (relato == null) return NotFound();
-            return Ok(relato);
+
+            var dto = new RelatoEventoCreateDto
+            {
+                Id = relato.Id,
+                UsuarioId = relato.UsuarioId,
+                Descricao = relato.Descricao,
+                Localizacao = relato.Localizacao,
+                DataEvento = relato.DataEvento
+            };
+
+            return Ok(dto);
         }
 
         [HttpPost]
@@ -41,8 +64,12 @@ namespace Eventus.API.Controllers
             };
             _context.Relatos.Add(relato);
             await _context.SaveChangesAsync();
-            return CreatedAtAction(nameof(GetById), new { id = relato.Id }, relato);
+
+            dto.Id = relato.Id; 
+
+            return CreatedAtAction(nameof(GetById), new { id = relato.Id }, dto);
         }
+
 
         [HttpPut("{id}")]
         public async Task<IActionResult> Put(int id, [FromBody] RelatoEventoCreateDto dto)
