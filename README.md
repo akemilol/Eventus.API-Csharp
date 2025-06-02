@@ -65,7 +65,7 @@ dotnet run
 
 ## 🎬 Vídeo Demonstrativo
 
-> [Mostrando o Funcionamento da aplicação(https://youtu.be/oiTAOJGtXGs)]  
+> [Mostrando o Funcionamento da aplicação](https://youtu.be/oiTAOJGtXGs) 
 
 ---
 
