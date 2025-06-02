@@ -1,5 +1,6 @@
-﻿namespace Eventus.API.Domain.Entities
+﻿using System;
 
+namespace Eventus.API.Domain.Entities
 {
     public class Alerta
     {

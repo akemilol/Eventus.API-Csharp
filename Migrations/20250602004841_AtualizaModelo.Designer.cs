@@ -3,6 +3,7 @@ using System;
 using Eventus.API.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Oracle.EntityFrameworkCore.Metadata;
 
@@ -11,9 +12,11 @@ using Oracle.EntityFrameworkCore.Metadata;
 namespace Eventus.API.Migrations
 {
     [DbContext(typeof(EventusDbContext))]
-    partial class EventusDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250602004841_AtualizaModelo")]
+    partial class AtualizaModelo
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,12 +46,10 @@ namespace Eventus.API.Migrations
                         .HasColumnType("NVARCHAR2(2000)");
 
                     b.Property<decimal?>("LatitudeAbrig")
-                        .HasPrecision(9, 6)
-                        .HasColumnType("DECIMAL(9,6)");
+                        .HasColumnType("DECIMAL(18, 2)");
 
                     b.Property<decimal?>("LongitudeAbrig")
-                        .HasPrecision(9, 6)
-                        .HasColumnType("DECIMAL(9,6)");
+                        .HasColumnType("DECIMAL(18, 2)");
 
                     b.Property<string>("NomeAbrigo")
                         .IsRequired()

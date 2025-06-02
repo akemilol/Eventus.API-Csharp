@@ -1,5 +1,4 @@
 ﻿namespace Eventus.API.Domain.Entities
-
 {
     public class UsuarioAbrigo
     {

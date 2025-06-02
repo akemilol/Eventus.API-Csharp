@@ -1,9 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Eventus.API.Domain.Entities;
 
-
 namespace Eventus.API.Infrastructure.Context
-
 {
     public class EventusDbContext : DbContext
     {
@@ -28,7 +26,13 @@ namespace Eventus.API.Infrastructure.Context
                 .ToTable("RELATOS");
 
             modelBuilder.Entity<Abrigo>()
-                .ToTable("ABRIGO");
+                .ToTable("ABRIGO")
+                .Property(a => a.LatitudeAbrig)
+                .HasPrecision(9, 6);
+
+            modelBuilder.Entity<Abrigo>()
+                .Property(a => a.LongitudeAbrig)
+                .HasPrecision(9, 6);
 
             modelBuilder.Entity<Alerta>()
                 .ToTable("ALERTA");
