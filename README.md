@@ -71,7 +71,7 @@ dotnet run
 
 ## 🚀 Vídeo Pitch
 
-> [video (máx. 3 minutos)]  
+> [video](https://youtu.be/OAyBGUx5pc8) 
 
 ---
 
